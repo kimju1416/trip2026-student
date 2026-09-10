@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FBF6F1">
+<meta property="og:title" content="2학년 수학여행 안내">
+<meta property="og:description" content="10.1(목)–10.2(금) 일정표 · 안전교육 · 준비물 · 비상시 행동">
+<title>2학년 수학여행 안내</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --point:#E05A1E; --point-h:#C24A15; --point-soft:#FCEBE1;
+  --bg:#FBF6F1; --card:#FFFFFF; --line:#EFE2D6; --line-2:#E2D3C4;
+  --text:#2E2418; --sub:#8A796A; --mute:#B4A597;
+  --ok:#1D7A4D; --ok-bg:#E7F3EC; --warn:#B26B0F; --warn-bg:#FBF0DE; --err:#C0392B; --err-bg:#F9E8E6;
+  --r1:10px; --r2:14px; --nav-h:62px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,'Malgun Gothic',sans-serif;
+  background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;
+  word-break:keep-all;overflow-wrap:anywhere;
+  padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 28px);
+}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+
+.appbar{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.appbar .wrap{height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.appbar h1{font-size:17px;font-weight:700;line-height:1.25}
+.appbar h1 small{display:block;font-size:12px;font-weight:500;color:var(--sub)}
+.appbar .date{font-size:13px;font-weight:600;color:var(--point);white-space:nowrap}
+
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.nav .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);height:var(--nav-h)}
+.nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;font-weight:600;color:var(--mute)}
+.nav button svg{width:22px;height:22px}
+.nav button[aria-selected="true"]{color:var(--point)}
+
+.panel{padding-top:20px}
+.panel[hidden]{display:none!important}
+.sec{margin-bottom:32px}
+.sec-label{font-size:13px;font-weight:600;color:var(--sub);letter-spacing:.02em;margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2)}
+.pad{padding:16px}
+.muted{color:var(--sub)}
+.small{font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;line-height:1;padding:5px 7px;border-radius:6px;background:var(--point-soft);color:var(--point-h);white-space:nowrap;vertical-align:middle}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+
+/* 지금 카드 */
+.now{padding:18px 16px}
+.now .k{font-size:13px;font-weight:600;color:var(--point)}
+.now .t{font-size:20px;font-weight:700;line-height:1.35;margin-top:2px}
+.now .tm{font-size:14px;color:var(--sub);margin-top:2px}
+.now .next{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:baseline}
+.now .next .k{color:var(--sub);flex:none}
+.now .next .v{font-size:15px;font-weight:600}
+.dday{font-size:32px;font-weight:700;color:var(--point);line-height:1.1}
+
+/* 일정 */
+.day-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 10px}
+.day-h h2{font-size:19px;font-weight:700}
+.day-h span{font-size:14px;color:var(--sub)}
+.tl{list-style:none}
+.tl>li{display:grid;grid-template-columns:74px 1fr;gap:12px;padding:13px 16px;border-top:1px solid var(--line);position:relative}
+.tl>li:first-child{border-top:0}
+.tl .time{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.tl .what{font-size:16px;font-weight:600;line-height:1.45}
+.tl .notes{list-style:none;margin-top:6px;font-size:14px;color:var(--sub);line-height:1.55}
+.tl .notes li{position:relative;padding-left:12px;margin:3px 0}
+.tl .notes li::before{content:"";position:absolute;left:1px;top:.72em;width:4px;height:4px;border-radius:50%;background:var(--mute)}
+.tl>li.past .time,.tl>li.past .what{color:var(--mute)}
+.tl>li.cur{background:var(--point-soft)}
+.tl>li.cur::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--point)}
+.tl>li.cur .time{color:var(--point-h)}
+
+details.card>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 16px;min-height:56px;font-weight:600;font-size:16px}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary .grow{flex:1;min-width:0}
+details.card>summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);margin-top:-4px;flex:none;transition:transform .15s}
+details.card[open]>summary::after{transform:rotate(-135deg);margin-top:4px}
+details.card>.body{padding:0 16px 16px}
+details.card+details.card{margin-top:8px}
+.kv{list-style:none}
+.kv li{display:flex;gap:12px;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.kv li:first-child{border-top:0}
+.kv .k{color:var(--sub);flex:none;width:74px}
+.kv .v{font-weight:600;text-align:right;flex:1}
+
+/* 안전교육 */
+.progress{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.bar{flex:1;height:8px;border-radius:4px;background:#F1E6DB;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--point);border-radius:4px;transition:width .25s}
+.progress b{font-size:15px;white-space:nowrap}
+.rules{list-style:none}
+.rules li{position:relative;padding:9px 0 9px 26px;border-top:1px solid var(--line);font-size:15px;line-height:1.55}
+.rules li:first-child{border-top:0}
+.rules li::before{content:"";position:absolute;left:4px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--point)}
+.rules li b{font-weight:700}
+.src{margin-top:10px;font-size:12px;color:var(--sub)}
+.read-btn{margin-top:12px;width:100%;height:48px;border-radius:var(--r1);background:var(--point);color:#fff;font-size:15px;font-weight:600}
+.read-btn[aria-pressed="true"]{background:var(--card);color:var(--ok);border:1px solid #BFDCCB}
+.state{flex:none}
+.sources{font-size:13px;color:var(--sub);line-height:1.7}
+.sources a{color:var(--sub)}
+
+/* 준비물 */
+.checklist{list-style:none}
+.checklist li{border-top:1px solid var(--line)}
+.checklist li:first-child{border-top:0}
+.checklist label{position:relative;display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:54px;cursor:pointer}
+.checklist input{position:absolute;left:16px;top:50%;width:24px;height:24px;margin-top:-12px;opacity:0;pointer-events:none}
+.checklist .box{flex:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:transparent;background:var(--card)}
+.checklist .box svg{width:16px;height:16px}
+.checklist input:checked+.box{background:var(--point);border-color:var(--point);color:#fff}
+.checklist input:focus-visible+.box{box-shadow:0 0 0 3px rgba(224,90,30,.25)}
+.checklist .txt{flex:1;font-size:16px;line-height:1.45}
+.checklist .txt small{display:block;font-size:13px;color:var(--sub)}
+.checklist input:checked~.txt{color:var(--sub)}
+.no-list li{padding:11px 16px;border-top:1px solid var(--line);font-size:15px;list-style:none;display:flex;gap:10px}
+.no-list li:first-child{border-top:0}
+.no-list li::before{content:"";flex:none;width:14px;height:2px;background:var(--err);margin-top:.8em}
+
+/* 비상시 */
+.sos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sos a{height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(--r1);background:var(--card);border:1px solid var(--line-2);text-decoration:none;color:var(--text);font-size:19px;font-weight:700;line-height:1.2}
+.sos a small{font-size:12px;font-weight:500;color:var(--sub)}
+.sos a.fire{color:var(--err);border-color:#EBC3BE}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:10px 0 10px 34px;border-top:1px solid var(--line);font-size:15px}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:var(--point-soft);color:var(--point-h);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.telrow{display:flex;gap:8px;align-items:flex-end}
+.telrow+.telrow{margin-top:12px}
+.field{flex:1;min-width:0}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field input{width:100%;height:48px;border:1px solid var(--line-2);border-radius:var(--r1);padding:0 12px;font-size:16px;background:var(--card);outline:none;font-variant-numeric:tabular-nums}
+.field input:focus{border-color:var(--point);box-shadow:0 0 0 3px rgba(224,90,30,.12)}
+.callbtn{flex:none;height:48px;min-width:72px;padding:0 14px;border-radius:var(--r1);background:var(--point);color:#fff;font-size:15px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.callbtn[aria-disabled="true"]{background:#EADCCF;color:var(--sub);pointer-events:none}
+.places{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.places span{font-size:14px;font-weight:600;padding:6px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 16px);transform:translateX(-50%);z-index:70;background:rgba(20,20,20,.9);color:#fff;font-size:14px;padding:10px 16px;border-radius:var(--r1);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="wrap">
+    <h1>2학년 수학여행<small>학생 안내</small></h1>
+    <span class="date">10.1(목)–10.2(금)</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= 일정 ================= -->
+<section class="panel" data-tab="schedule">
+  <div class="sec"><div class="card now" id="nowCard"></div></div>
+  <div id="days"></div>
+
+  <div class="sec">
+    <p class="sec-label">밥은 이렇게 먹어요</p>
+    <div class="card pad">
+      <ul class="kv">
+        <li><span class="k">1일차 점심·저녁</span><span class="v">에버랜드 밀쿠폰 12,000원 × 2회</span></li>
+        <li><span class="k">2일차 아침</span><span class="v">숙소 조식</span></li>
+        <li><span class="k">2일차 점심</span><span class="v">한국민속촌 밀쿠폰 10,000원</span></li>
+      </ul>
+      <p class="small muted" style="margin-top:8px">밀쿠폰은 QR이라 휴대폰 배터리가 꼭 남아 있어야 해요. 금액 안에서 메뉴를 바꿀 수 있고, 돈을 더 내면 다른 메뉴도 고를 수 있어요.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">2일차 조식 메뉴</p>
+    <details class="card">
+      <summary><span class="grow">알레르기가 있으면 꼭 확인</span><span class="tag warn">* 바뀔 수 있음</span></summary>
+      <div class="body">
+        <ul class="kv">
+          <li><span class="k">샐러드</span><span class="v">양상추 · 라디치오 · 방울토마토 · 비타민 · 드레싱 3종* · 꽃맛살 샐러드* · 감자 샐러드*</span></li>
+          <li><span class="k">따뜻한 음식</span><span class="v">스크램블 · 베이컨 · 치폴라타 · 감자 튀김(케찹) · 가라아게 · 흰밥 · 한식 국* · 스프*</span></li>
+          <li><span class="k">햄·치즈</span><span class="v">본레스 햄 · 비어 햄 · 아메리칸 · 스위스 · 에멘탈 · 스모크 치즈</span></li>
+          <li><span class="k">빵·시리얼</span><span class="v">식빵 · 모닝 빵 · 바게트 · 초코첵스 · 아몬드 후레이크 · 후르트 링</span></li>
+          <li><span class="k">요거트</span><span class="v">플레인 요거트 · 견과류 4종*</span></li>
+          <li><span class="k">반찬·과일</span><span class="v">배추김치 · 나물 또는 볶음* · 오징어 젓갈 · 김 · 파인애플 · 오렌지 · 바나나</span></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================= 안전교육 ================= -->
+<section class="panel" data-tab="safety" hidden>
+  <div class="sec">
+    <div class="card progress" id="readProgress"></div>
+    <p class="small muted" style="margin-top:8px">항목을 열어 읽고 «다 읽었어요»를 눌러 주세요. 기록은 이 휴대폰에만 남아요.</p>
+  </div>
+  <div class="sec" id="safetyList"></div>
+  <div class="sec">
+    <p class="sec-label">내용 출처</p>
+    <div class="sources">
+      2026학년도 현장체험학습 운영 안내서 (경상북도교육청, 교육부 「현장체험학습 안내자료」 2024.12. 반영)<br>
+      <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/contents/prevent/SDIJKM5116.html?menuSeq=127" target="_blank" rel="noopener">국민재난안전포털 화재 행동요령</a><br>
+      2026학년도 2학년 수학여행 운영 계획
+    </div>
+  </div>
+</section>
+
+<!-- ================= 준비물 ================= -->
+<section class="panel" data-tab="pack" hidden>
+  <div class="sec">
+    <div class="card progress" id="packProgress"></div>
+  </div>
+  <div id="packGroups"></div>
+
+  <div class="sec">
+    <p class="sec-label">가져오지 않아요</p>
+    <ul class="card no-list">
+      <li>라이터 같은 화기, 위험한 물건, 장난감</li>
+      <li>학생이 가지고 있으면 안 되는 물건</li>
+      <li>잃어버릴까 걱정되는 비싼 물건 (잃어버리면 본인 책임)</li>
+      <li>컵라면</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">용돈</p>
+    <div class="card pad small">필요한 만큼만 조금 가져와요. 1일차 점심·저녁, 2일차 아침·점심은 지원돼요.</div>
+  </div>
+</section>
+
+<!-- ================= 비상시 ================= -->
+<section class="panel" data-tab="help" hidden>
+  <div class="sec sos">
+    <a class="fire" href="tel:119">119<small>불 · 다침 · 응급</small></a>
+    <a href="tel:112">112<small>범죄 · 위험</small></a>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">급한 일이 생기면</p>
+    <div class="card pad">
+      <ol class="steps">
+        <li>다치거나 아프거나, 친구가 안 보이면 <b>담임 선생님께 제일 먼저</b> 알려요.</li>
+        <li>담임 선생님과 연락이 안 되면 <b>다른 인솔 선생님</b>께 알려요.</li>
+        <li>버스 타는 곳이나 시간은 인솔 선생님께 물어봐요.</li>
+        <li>작은 사고라도 숨기지 말고 바로 말해요.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">길을 잃었을 때</p>
+    <div class="card pad">
+      <ol class="steps">
+        <li>당황하지 말고 <b>담임 선생님께 전화</b>해요.</li>
+        <li>에버랜드에서 담임 선생님을 만나야 하면 가장 가까운 집결지로 가요.
+          <div class="places"><span>알파인 의무실</span><span>교사 휴게실</span><span>정문 의무실</span><span>유아 휴게실</span><span>공원교</span><span>평석교</span><span>목교</span></div>
+        </li>
+        <li>연락이 안 되면 가까운 직원이나 파출소에 도움을 요청해요.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">선생님 번호 저장</p>
+    <div class="card pad">
+      <div class="telrow">
+        <div class="field"><label for="tel1">담임 선생님</label><input id="tel1" type="tel" inputmode="tel" placeholder="010-0000-0000" autocomplete="off" maxlength="15"></div>
+        <a class="callbtn" id="call1" aria-disabled="true" href="#">전화</a>
+      </div>
+      <div class="telrow">
+        <div class="field"><label for="tel2">다른 인솔 선생님</label><input id="tel2" type="tel" inputmode="tel" placeholder="010-0000-0000" autocomplete="off" maxlength="15"></div>
+        <a class="callbtn" id="call2" aria-disabled="true" href="#">전화</a>
+      </div>
+      <p class="small muted" style="margin-top:12px">번호는 이 휴대폰에만 저장되고 어디에도 보내지지 않아요. 휴대폰 연락처에도 따로 저장해 두세요.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">미리 해 둘 것</p>
+    <div class="card pad small">
+      재난안전정보 포털 앱 <b>「안전디딤돌」</b>을 설치하고 사용법을 익혀 두세요.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="nav" role="tablist" aria-label="화면 선택">
+  <div class="in">
+    <button role="tab" data-go="schedule" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>일정</button>
+    <button role="tab" data-go="safety" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.3 2.3 4.2-4.3"/></svg>안전교육</button>
+    <button role="tab" data-go="pack" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13.5" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M4 12.5h16"/></svg>준비물</button>
+    <button role="tab" data-go="help" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>비상시</button>
+  </div>
+</nav>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+'use strict';
+
+var TRIP_D1 = '2026-10-01', TRIP_D2 = '2026-10-02';
+
+var SCHEDULE = [
+  {d:TRIP_D1, label:'1일차', date:'10. 1.(목)', items:[
+    {t:'08:00', e:'08:00', what:'인원 점검 후 학교 출발', notes:['몸이 안 좋으면 출발 전에 담임 선생님께 말해요','버스에 타면 바로 안전벨트']},
+    {t:'~10:00', e:'10:00', what:'충주휴게소 휴식 후 출발', notes:['보행로로 다니고 뛰지 않아요','내리기 전에 들은 출발 시간 지키기']},
+    {t:'~11:40', e:'11:40', what:'에버랜드 도착 (제1주차장)', notes:['입장 QR 미리 받아 두기 · 스마트 줄서기','퇴장하면 다시 들어갈 수 없어요']},
+    {t:'~12:10', e:'12:10', what:'에버랜드 입장 · 반별 단체 사진'},
+    {t:'~21:30', e:'21:30', what:'자유시간 · 점심 · 저녁', notes:['밀쿠폰 12,000원 × 2회','담임 선생님을 만나야 하면 가까운 집결지로 (비상시 탭)']},
+    {t:'~22:20', e:'22:20', what:'숙소로 이동 · 도착', notes:['버스에서 내리기 전 안전교육 · 조식 시간 안내','숙소에 들어가면 반별로 모여요']},
+    {t:'~23:30', e:'23:30', what:'방 배정 후 자유시간', notes:['방에 들어가면 비상구와 계단 위치부터 확인']},
+    {t:'~23:30', e:'23:30', what:'담임 선생님 점호 · 안전교육'},
+    {t:'24:00', e:'2026-10-02T07:00', what:'취침'}
+  ]},
+  {d:TRIP_D2, label:'2일차', date:'10. 2.(금)', items:[
+    {t:'07:00', e:'07:20', what:'기상 · 세면'},
+    {t:'07:20–08:20', e:'08:20', what:'조식 · 퇴실 준비', notes:['알레르기가 있으면 조식 메뉴 확인']},
+    {t:'~09:00', e:'09:00', what:'객실 카드 반납 · 버스 탑승', notes:['방에 두고 온 물건이 없는지 확인']},
+    {t:'09:00–09:40', e:'09:40', what:'한국민속촌으로 이동'},
+    {t:'~10:00', e:'10:00', what:'한국민속촌 입장 · 반별 단체 사진', notes:['퇴장하면 다시 들어갈 수 없어요']},
+    {t:'~13:30', e:'13:30', what:'자유시간 · 점심', notes:['밀쿠폰 10,000원','공연 11:00 어서오시오!(손님맞이) · 12:00 삼도판굿 · 12:30 소리 따라 걷는 민속촌']},
+    {t:'13:30–16:40', e:'16:40', what:'버스 탑승 · 인원 점검 후 출발', notes:['중간에 휴게소에서 쉬어요']},
+    {t:'16:40', e:'16:40', what:'학교 도착'},
+    {t:'16:40–17:30', e:'17:30', what:'안전하게 집으로'}
+  ]}
+];
+
+var SAFETY = [
+  {id:'bus', title:'버스 안에서', src:'운영 안내서', rules:[
+    '출발부터 도착까지 <b>안전벨트</b>를 계속 매요.',
+    '버스가 <b>완전히 멈추기 전</b>에는 자리에서 일어나지 않아요.',
+    '창문 밖으로 손이나 머리를 내밀지 않고, 쓰레기를 밖으로 버리지 않아요.',
+    '타면 <b>소화기</b>와 <b>비상탈출용 망치</b> 위치를 확인해요. 평소에는 만지거나 장난치지 않아요.',
+    '출발 전 안전교육 영상과 안내 방송을 끝까지 들어요.'
+  ]},
+  {id:'rest', title:'휴게소에서', src:'운영 안내서', rules:[
+    '좌우를 살피고 <b>보행로</b>로 다녀요.',
+    '움직이는 차, 주차하는 차, <b>후진하는 차</b>를 조심해요.',
+    '휴게소 안에서는 뛰지 않아요.',
+    '내리기 전에 들은 <b>출발 시간</b>을 꼭 지켜요.'
+  ]},
+  {id:'crash', title:'버스 사고나 불이 나면', src:'운영 안내서', rules:[
+    '선생님 안내에 따라 <b>질서 있게</b> 내려서 도로 밖 안전한 곳으로 가요.',
+    '출입구가 막히면 비상탈출용 망치로 <b>유리창 모서리</b>를 깨고 나가요.',
+    '내린 뒤에는 인원 확인이 끝날 때까지 흩어지지 않아요.',
+    '목이나 허리가 아프면 억지로 움직이지 말고 선생님께 알려요.'
+  ]},
+  {id:'sick', title:'멀미가 걱정되면', src:'운영 안내서', rules:[
+    '먹는 멀미약은 <b>타기 30분~1시간 전</b>에 먹어요.',
+    '붙이는 멀미약은 <b>타기 4시간 전</b>에 붙이고, 붙인 뒤 손을 꼭 씻어요. 그 손으로 눈을 만지면 부작용이 생길 수 있어요.',
+    '앞자리가 덜 흔들려요. 창밖 먼 곳을 보거나 눈을 감고 쉬어요.',
+    '멀미약은 설명서를 읽고 집에서 미리 준비해 와요.'
+  ]},
+  {id:'park', title:'에버랜드 · 민속촌에서', src:'운영 계획 · 운영 안내서', rules:[
+    '항상 <b>학급 단위</b>로 움직이고, 정해진 구역 밖으로 가지 않아요.',
+    '<b>집합 시간</b>을 지키고, 수시로 하는 인원 점검에 협조해요.',
+    '퇴장하면 다시 들어갈 수 없어요.',
+    '소지품은 자주 확인해요.',
+    '공연장에 드나들 때는 뛰거나 앞사람을 밀지 않아요.',
+    '불이 나거나 정전되면 선생님 지시에 따라 질서 있게 대피해요.',
+    '다른 사람에게 친절하게 대하고, 소리를 지르거나 야유하지 않아요.'
+  ]},
+  {id:'fire', title:'숙소에서 불이 나면', src:'운영 안내서 · 국민재난안전포털', rules:[
+    '방에 들어가면 먼저 <b>비상구와 계단 위치</b>를 확인해 둬요.',
+    '불을 보면 <b>"불이야"</b> 크게 외치고 <b>비상벨</b>을 눌러요.',
+    '문을 열기 전에 <b>손등으로 손잡이</b>를 만져 봐요. 뜨거우면 열지 말고 다른 길로 가요.',
+    '<b>엘리베이터는 절대 타지 않고</b> 계단으로 내려가요.',
+    '연기가 있으면 젖은 수건 등으로 <b>코와 입을 막고 낮은 자세</b>로, 한 손은 벽을 짚고 이동해요.',
+    '밖으로 나오면 119에 신고하고 선생님께 알려요.'
+  ]},
+  {id:'room', title:'숙소 생활', src:'운영 계획', rules:[
+    '점호 · 취침 · 기상 시간을 지켜요.',
+    '<b>배정받은 내 방</b>에서만 지내요.',
+    '허락 없이 숙소 밖으로 나가지 않아요.',
+    '라이터 같은 불이 나는 물건은 가져오지 않아요.',
+    '침구와 비품은 아껴 써요.'
+  ]},
+  {id:'health', title:'먹을 때 · 아플 때', src:'운영 계획 · 운영 안내서', rules:[
+    '불량식품은 먹지 않아요.',
+    '알레르기가 있으면 <b>조식 메뉴</b>를 미리 확인해요.',
+    '열이 나거나 몸이 안 좋으면 참지 말고 <b>담임 선생님께 바로</b> 알려요.',
+    '토하거나 설사하면 물을 조금씩 충분히 마시고 선생님께 알려요.',
+    '코피가 나면 <b>고개를 앞으로 숙이고</b> 콧방울을 10분 이상 꽉 눌러요.'
+  ]},
+  {id:'respect', title:'서로 존중해요', src:'운영 안내서 (성범죄 예방교육)', rules:[
+    '친구가 <b>싫다고 하면 바로 멈춰요</b>.',
+    '몸으로 하는 심한 장난은 하지 않아요.',
+    '허락 없이 친구 사진이나 영상을 찍거나 올리지 않아요. 자는 모습은 더더욱 안 돼요.',
+    '곤란한 일이 생기면 그 자리를 피하고 선생님께 바로 도움을 요청해요.'
+  ]}
+];
+
+var PACK = [
+  {title:'출발 전에 할 일', items:[
+    ['안전교육 영상 보고 댓글 달기','반별 단톡방 링크'],
+    ['에버랜드 입장 QR 받아 두기','스마트 줄서기 사용법도 확인'],
+    ['「안전디딤돌」 앱 설치',''],
+    ['담임 선생님 번호 휴대폰에 저장',''],
+    ['37.5℃ 이상 열이 나면 담임 선생님께 연락','감염병이 의심될 때도']
+  ]},
+  {title:'꼭 챙겨요', items:[
+    ['휴대폰 충전기','자유이용권·밀쿠폰이 QR이에요'],
+    ['보조 배터리',''],
+    ['운동화 신고 오기','샌들·슬리퍼·구두는 안 돼요'],
+    ['개인 상비약 · 멀미약',''],
+    ['수학여행 안내서','']
+  ]},
+  {title:'옷', items:[
+    ['보온용 겉옷','밤에 쌀쌀해요'],
+    ['여벌 옷 · 속옷 · 양말',''],
+    ['모자 · 손수건','']
+  ]},
+  {title:'씻을 것 · 위생', items:[
+    ['세면도구','치약, 칫솔 등'],
+    ['휴대용 물티슈',''],
+    ['여분의 마스크 · 선크림',''],
+    ['여성용품','']
+  ]},
+  {title:'그 밖에', items:[
+    ['접는 우산 또는 비옷',''],
+    ['비닐봉지','쓰레기 담을 용도'],
+    ['물통',''],
+    ['상하지 않는 간식','컵라면은 안 돼요'],
+    ['용돈 조금','']
+  ]}
+];
+
+/* ---------- 유틸 ---------- */
+var $ = function(s){return document.querySelector(s);};
+var $$ = function(s){return Array.prototype.slice.call(document.querySelectorAll(s));};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function load(key, def){ try{ var v = localStorage.getItem(key); return v ? JSON.parse(v) : def; }catch(e){ return def; } }
+function save(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+function toDate(s){
+  var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/);
+  return new Date(+m[1], +m[2]-1, +m[3], +(m[4]||0), +(m[5]||0));
+}
+function getNow(){
+  var p = new URLSearchParams(location.search).get('now'); // 검사용: ?now=2026-10-01T15:00
+  return p && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(p) ? toDate(p) : new Date();
+}
+var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+var toastTimer;
+function toast(msg){ var t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(function(){t.hidden=true;},2500); }
+
+/* ---------- 일정 ---------- */
+var FLAT = [];
+SCHEDULE.forEach(function(day, di){
+  day.items.forEach(function(it, ii){
+    it.end = it.e.indexOf('T')>0 ? toDate(it.e) : toDate(day.d+'T'+it.e);
+    it.id = 'd'+di+'i'+ii; it.dayLabel = day.label; FLAT.push(it);
+  });
+});
+function renderDays(){
+  $('#days').innerHTML = SCHEDULE.map(function(day){
+    return '<div class="sec"><div class="day-h"><h2>'+day.label+'</h2><span>'+day.date+'</span></div><div class="card"><ol class="tl">'
+      + day.items.map(function(it){
+        return '<li id="'+it.id+'"><span class="time">'+esc(it.t)+'</span><div><div class="what">'+esc(it.what)+'</div>'
+          + (it.notes ? '<ul class="notes">'+it.notes.map(function(n){return '<li>'+esc(n)+'</li>';}).join('')+'</ul>' : '')
+          + '</div></li>';
+      }).join('') + '</ol></div></div>';
+  }).join('');
+}
+function fmtLeft(ms){ var m=Math.round(ms/60000), h=Math.floor(m/60); m%=60; return (h? h+'시간 ':'')+m+'분'; }
+function renderNow(){
+  var now = getNow(), card = $('#nowCard'), start = toDate(TRIP_D1+'T00:00'), first = FLAT[0], last = FLAT[FLAT.length-1];
+  $$('.tl>li').forEach(function(li){ li.classList.remove('cur','past'); });
+  if(now < start){
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var dd = Math.round((start - today)/86400000);
+    card.innerHTML = '<div class="k">수학여행까지</div><div class="dday">D-'+dd+'</div><div class="tm">10월 1일(목) 08:00 학교 출발 · 1박 2일</div>';
+    return;
+  }
+  if(now >= last.end){
+    card.innerHTML = '<div class="k">일정 끝</div><div class="t">모두 무사히 다녀왔어요.</div><div class="tm">수고 많았어요.</div>';
+    $$('.tl>li').forEach(function(li){ li.classList.add('past'); });
+    return;
+  }
+  var ci = 0; for(var i=0;i<FLAT.length;i++){ if(FLAT[i].end > now){ ci=i; break; } }
+  var cur = FLAT[ci], html;
+  if(now < first.end){
+    html = '<div class="k">오늘 출발</div><div class="t">08:00 인원 점검 후 학교 출발</div><div class="tm">'+fmtLeft(first.end-now)+' 남았어요</div>'
+      + '<div class="next"><span class="k">다음</span><span class="v">'+esc(FLAT[1].t)+' '+esc(FLAT[1].what)+'</span></div>';
+  }else{
+    var curs = FLAT.filter(function(it){ return +it.end === +cur.end; });
+    var after = FLAT.filter(function(it){ return +it.end > +cur.end; })[0];
+    html = '<div class="k">지금 · '+cur.dayLabel+'</div><div class="t">'+curs.map(function(it){return esc(it.what);}).join(' · ')+'</div><div class="tm">'+esc(cur.t)+'</div>'
+      + (after ? '<div class="next"><span class="k">다음</span><span class="v">'+esc(after.t)+' '+esc(after.what)+'</span></div>' : '');
+    curs.forEach(function(it){ var li=document.getElementById(it.id); if(li) li.classList.add('cur'); });
+  }
+  card.innerHTML = html;
+  FLAT.forEach(function(it){ if(+it.end < +cur.end){ var li=document.getElementById(it.id); if(li) li.classList.add('past'); } });
+}
+
+/* ---------- 안전교육 ---------- */
+var READ_KEY = 'trip2026s.read.v1';
+var readState = load(READ_KEY, {});
+function renderSafety(){
+  $('#safetyList').innerHTML = SAFETY.map(function(s, i){
+    var done = !!readState[s.id];
+    return '<details class="card" data-id="'+s.id+'"><summary><span class="grow">'+(i+1)+'. '+esc(s.title)+'</span>'
+      + '<span class="state">'+(done ? '<span class="tag ok">읽음</span>' : '')+'</span></summary>'
+      + '<div class="body"><ul class="rules">'+s.rules.map(function(r){ return '<li>'+r+'</li>'; }).join('')+'</ul>'
+      + '<p class="src">출처: '+esc(s.src)+'</p>'
+      + '<button class="read-btn" data-read="'+s.id+'" aria-pressed="'+done+'">'+(done ? '읽음 표시됨 · 누르면 취소' : '다 읽었어요')+'</button></div></details>';
+  }).join('');
+  renderReadProgress();
+}
+function renderReadProgress(){
+  var n = SAFETY.filter(function(s){ return readState[s.id]; }).length;
+  $('#readProgress').innerHTML = '<div class="bar"><i style="width:'+Math.round(n/SAFETY.length*100)+'%"></i></div><b>'+n+' / '+SAFETY.length+' 읽음</b>';
+}
+$('#safetyList').addEventListener('click', function(e){
+  var b = e.target.closest('[data-read]'); if(!b) return;
+  var id = b.getAttribute('data-read'), det = b.closest('details');
+  if(readState[id]) delete readState[id]; else readState[id] = Date.now();
+  save(READ_KEY, readState);
+  var done = !!readState[id];
+  b.setAttribute('aria-pressed', done);
+  b.textContent = done ? '읽음 표시됨 · 누르면 취소' : '다 읽었어요';
+  det.querySelector('.state').innerHTML = done ? '<span class="tag ok">읽음</span>' : '';
+  renderReadProgress();
+  if(done){
+    det.open = false;
+    var next = det.nextElementSibling;
+    if(next && !readState[next.getAttribute('data-id')]){ next.open = true; next.scrollIntoView({block:'start', behavior:'smooth'}); }
+    if(SAFETY.every(function(s){ return readState[s.id]; })) toast('안전교육을 모두 읽었어요.');
+  }
+});
+
+/* ---------- 준비물 ---------- */
+var PACK_KEY = 'trip2026s.pack.v1';
+var packState = load(PACK_KEY, {});
+var PACK_TOTAL = PACK.reduce(function(s,g){ return s + g.items.length; }, 0);
+function renderPack(){
+  $('#packGroups').innerHTML = PACK.map(function(g, gi){
+    return '<div class="sec"><p class="sec-label">'+esc(g.title)+'</p><ul class="card checklist">'
+      + g.items.map(function(it, ii){
+        var k = gi+'-'+ii;
+        return '<li><label><input type="checkbox" data-pack="'+k+'"'+(packState[k]?' checked':'')+'><span class="box">'+CHECK_SVG+'</span>'
+          + '<span class="txt">'+esc(it[0])+(it[1] ? '<small>'+esc(it[1])+'</small>' : '')+'</span></label></li>';
+      }).join('') + '</ul></div>';
+  }).join('');
+  renderPackProgress();
+}
+function renderPackProgress(){
+  var n = Object.keys(packState).length;
+  $('#packProgress').innerHTML = '<div class="bar"><i style="width:'+Math.round(n/PACK_TOTAL*100)+'%"></i></div><b>'+n+' / '+PACK_TOTAL+' 챙김</b>';
+}
+$('#packGroups').addEventListener('change', function(e){
+  var k = e.target.getAttribute('data-pack'); if(!k) return;
+  if(e.target.checked) packState[k] = 1; else delete packState[k];
+  save(PACK_KEY, packState); renderPackProgress();
+  if(Object.keys(packState).length === PACK_TOTAL) toast('준비 끝! 잘 다녀와요.');
+});
+
+/* ---------- 비상시: 선생님 번호(기기에만 저장) ---------- */
+var TEL_KEY = 'trip2026s.tel.v1';
+var telState = load(TEL_KEY, {});
+function cleanTel(v){ return v.replace(/[^0-9-]/g,'').slice(0,15); }
+function bindTel(inputId, btnId, key){
+  var inp = document.getElementById(inputId), btn = document.getElementById(btnId);
+  function sync(){
+    var digits = inp.value.replace(/[^0-9]/g,'');
+    var ok = digits.length >= 9;
+    btn.setAttribute('aria-disabled', !ok);
+    btn.href = ok ? 'tel:'+digits : '#';
+  }
+  inp.value = telState[key] || '';
+  sync();
+  inp.addEventListener('input', function(){
+    var c = cleanTel(inp.value); if(c !== inp.value) inp.value = c;
+    if(c) telState[key] = c; else delete telState[key];
+    save(TEL_KEY, telState); sync();
+  });
+  btn.addEventListener('click', function(e){ if(btn.getAttribute('aria-disabled')==='true') e.preventDefault(); });
+}
+bindTel('tel1','call1','homeroom');
+bindTel('tel2','call2','other');
+
+/* ---------- 탭 ---------- */
+var TABS = ['schedule','safety','pack','help'];
+function showTab(name, keepScroll){
+  if(TABS.indexOf(name) < 0) name = 'schedule';
+  $$('.panel').forEach(function(p){ p.hidden = p.getAttribute('data-tab') !== name; });
+  $$('.nav button').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-go') === name); });
+  if(!keepScroll) window.scrollTo(0,0);
+  if(location.hash !== '#'+name) history.replaceState(null,'','#'+name);
+  if(name === 'schedule') renderNow();
+}
+$('.nav').addEventListener('click', function(e){ var b = e.target.closest('button[data-go]'); if(b) showTab(b.getAttribute('data-go')); });
+window.addEventListener('hashchange', function(){ showTab(location.hash.slice(1)); });
+document.addEventListener('visibilitychange', function(){ if(!document.hidden) renderNow(); });
+setInterval(renderNow, 60000);
+
+renderDays(); renderSafety(); renderPack();
+showTab(location.hash.slice(1) || 'schedule', true);
+})();
+</script>
+</body>
+</html>
